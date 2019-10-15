@@ -52,8 +52,6 @@ def evaluate(data_path='../data/bbc_train',
 
     preds=M.predict(x)
 
-    print(preds[0], (np.array([data.classes[i] for i in class_labels])))
-
     classification_accuracy=(np.array([data.classes[i] for i in class_labels])==np.array(preds[0])).sum()/len(preds[0])
     bbox_score = 1 - np.mean(np.abs(bboxes-preds[1]))/(x.shape[-1]) #Divide by image height to rougly normalize score
     segmentation_accuracy=float((preds[2] == np.array(y.squeeze(1))).sum())/y.numel()
@@ -81,13 +79,13 @@ if __name__ == '__main__':
     program_end = time.time()
     total_time = round(program_end - program_start, 3)
     
-    print("Done!")
+    print("\nDone!")
     print("Execution time (seconds) = ", total_time)
     print("Score = ", score, 
-         "\n Combined accuracy = ", combined_accuracy, 
-         "\n Classification accuracy = ", classification_accuracy,
-         "\n bbox score = ", bbox_score,
-         "\n Segmentation Accuracy = ", segmentation_accuracy)
+         "\nCombined accuracy = ", combined_accuracy, 
+         "\nClassification accuracy = ", classification_accuracy,
+         "\nbbox score = ", bbox_score,
+         "\nSegmentation Accuracy = ", segmentation_accuracy)
 
 
 
