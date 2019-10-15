@@ -27,6 +27,7 @@ __pycache__
 data/
 videos/
 deprecated/
+models/
 
 # Logs and databases #
 ######################
