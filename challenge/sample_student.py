@@ -18,7 +18,7 @@ import numpy as np
 class Model(object):
     def __init__(self, path='../sample_models', file='export.pkl'):
         
-        self.learner=load_learner(path=path, file=file) #Load model
+        self.learn=load_learner(path=path, file=file) #Load model
         self.class_names=['brick', 'ball', 'cylinder']
 
     def predict(self, x):
@@ -35,14 +35,14 @@ class Model(object):
         '''
 
         #Normalize input data using the same mean and std used in training:
-        x_norm=normalize(x, torch.tensor(self.learner.data.stats[0]), 
-                            torch.tensor(self.learner.data.stats[1]))
+        x_norm=normalize(x, torch.tensor(self.learn.data.stats[0]), 
+                            torch.tensor(self.learn.data.stats[1]))
 
 
         #Pass data into model:
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         with torch.no_grad():
-            yhat=self.learner.model(x_norm.to(device))
+            yhat=self.learn.model(x_norm.to(device))
             yhat=yhat.detach().cpu()
 
         #Post-processing/parsing outputs, here's an example for classification only:
