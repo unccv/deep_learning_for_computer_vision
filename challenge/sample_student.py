@@ -19,7 +19,7 @@ class Model(object):
     def __init__(self, path='../sample_models', file='export.pkl'):
         
         self.learn=load_learner(path=path, file=file) #Load model
-        self.class_names=['brick', 'ball', 'cylinder']
+        self.class_names=['brick', 'ball', 'cylinder'] #Be careful here, labeled data uses this order, but fastai will use alphabetical by default!
 
     def predict(self, x):
         '''
@@ -47,7 +47,7 @@ class Model(object):
 
         #Post-processing/parsing outputs, here's an example for classification only:
         class_prediction_indices=yhat.argmax(dim=1)
-        class_predictions=[self.class_names[i] for i in class_prediction_indices]
+        class_predictions=[learn.data.classes[i] for i in class_prediction_indices]
 
         #Random Selection Placeholder Code for testing
         #class_predictions=[self.class_names[np.random.randint(3)] for i in range(x.shape[0])]
