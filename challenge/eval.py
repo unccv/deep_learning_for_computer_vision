@@ -40,7 +40,7 @@ def evaluate(data_path='../data/bbc_train',
 
 
     print("3. Evaluating on Test Images...")
-    x,y = data.one_batch()
+    x,y=next(iter(data.train_dl))
     #Extract class label from mask:
     class_labels=np.array([np.unique(y[i][y[i]!=0])[0] for i in range(x.shape[0])])
 
