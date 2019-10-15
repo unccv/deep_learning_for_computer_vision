@@ -47,7 +47,7 @@ class Model(object):
 
         #Post-processing/parsing outputs, here's an example for classification only:
         class_prediction_indices=yhat.argmax(dim=1)
-        class_predictions=[learn.data.classes[i] for i in class_prediction_indices]
+        class_predictions=[self.learn.data.classes[i] for i in class_prediction_indices]
 
         #Random Selection Placeholder Code for testing
         #class_predictions=[self.class_names[np.random.randint(3)] for i in range(x.shape[0])]
