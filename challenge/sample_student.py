@@ -12,54 +12,54 @@
 ## 
 ## ---------------------------- ##
 
-from fastai.vision import load_learner, normalize
+from fastai.vision import load_learner, normalize, torch
 import numpy as np
 
 class Model(object):
-	def __init__(self, path='../models', file='export.pkl'):
-		
-		self.learn=load_learner(path=path, file=file) #Load model
-		self.class_names=['brick', 'ball', 'cylinder']
+    def __init__(self, path='../sample_models', file='export.pkl'):
+        
+        self.learner=load_learner(path=path, file=file) #Load model
+        self.class_names=['brick', 'ball', 'cylinder']
 
-	def predict(self, x):
-		'''
-		Input: x = block of input images, stored as Torch.Tensor of dimension (batch_sizex3xHxW), 
-				   scaled between 0 and 1. 
-		Returns: a tuple containing: 
-			1. The final class predictions for each image (brick, ball, or cylinder) as a list of strings.
-			2. Upper left and lower right bounding box coordinates (in pixels) for the brick ball 
-			or cylinder in each image, as a 2d numpy array of dimension batch_size x 4.
-			3. Segmentation mask for the image, as a 3d numpy array of dimension (batch_sizexHxW). Each value 
-			in each segmentation mask should be either 0, 1, 2, or 3. Where 0=background, 1=brick, 
-			2=ball, 3=cylinder. 
-		'''
+    def predict(self, x):
+        '''
+        Input: x = block of input images, stored as Torch.Tensor of dimension (batch_sizex3xHxW), 
+                   scaled between 0 and 1. 
+        Returns: a tuple containing: 
+            1. The final class predictions for each image (brick, ball, or cylinder) as a list of strings.
+            2. Upper left and lower right bounding box coordinates (in pixels) for the brick ball 
+            or cylinder in each image, as a 2d numpy array of dimension batch_size x 4.
+            3. Segmentation mask for the image, as a 3d numpy array of dimension (batch_sizexHxW). Each value 
+            in each segmentation mask should be either 0, 1, 2, or 3. Where 0=background, 1=brick, 
+            2=ball, 3=cylinder. 
+        '''
 
-		#Normalize input data using the same mean and std used in training:
-		x_norm=normalize(x, torch.tensor(learn.data.stats[0]), 
-							torch.tensor(learn.data.stats[1]))
-
-
-		#Pass data into model:
-		yhat=self.learn.model(x_norm)
-
-		#Post-processing/parsing outputs
+        #Normalize input data using the same mean and std used in training:
+        x_norm=normalize(x, torch.tensor(self.learner.data.stats[0]), 
+                            torch.tensor(self.learner.data.stats[1]))
 
 
+        #Pass data into model:
+        with torch.no_grad():
+            yhat=self.learner.model(x_norm)
+            yhat=yhat.detach()
 
+        #Post-processing/parsing outputs, here's an example for classification only:
+        class_prediction_indices=yhat.argmax(dim=1)
+        class_predictions=[self.class_names[i] for i in class_prediction_indices]
 
+        #Random Selection Placeholder Code for testing
+        #class_predictions=[self.class_names[np.random.randint(3)] for i in range(x.shape[0])]
 
-		#Random Selection Placeolder Code
-		class_predictions=[self.class_names[np.random.randint(3)] for i in range(x.shape[0])]
+        #Scale randomly chosen bbox coords to image shape:
+        bbox=np.random.rand(x.shape[0], 4)
+        bbox[:,0] *= x.shape[2]; bbox[:,2] *= x.shape[2] 
+        bbox[:,1] *= x.shape[3]; bbox[:,3] *= x.shape[3]
 
-		#Scale randomly chosen bbox coords to image shape:
-		bbox=np.random.rand(x.shape[0], 4)
-		bbox[:,0] *= x.shape[2]; bbox[:,2] *= x.shape[2] 
-		bbox[:,1] *= x.shape[3]; bbox[:,3] *= x.shape[3]
+        #Create random segmentation mask:
+        mask=np.random.randint(low=0, high=4, size=(x.shape[0], x.shape[2], x.shape[3]))
 
-		#Create random segmentation mask:
-		mask=np.random.randint(low=0, high=4, size=(x.shape[0], x.shape[2], x.shape[3]))
-
-		return (class_predictions, bbox, mask)
+        return (class_predictions, bbox, mask)
 
 
 
