@@ -15,8 +15,7 @@ from sample_student import Model
 
 def evaluate(data_path='../data/bbc_train',
              model_dir = '../sample_models',
-             batches_to_test=8,
-             batch_size=16, 
+             batch_size=64, 
              im_size=(256,256)):
 
     
