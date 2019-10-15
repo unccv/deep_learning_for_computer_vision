@@ -40,9 +40,10 @@ class Model(object):
 
 
         #Pass data into model:
+        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         with torch.no_grad():
-            yhat=self.learner.model(x_norm)
-            yhat=yhat.detach()
+            yhat=self.learner.model(x_norm.to(device))
+            yhat=yhat.detach().cpu()
 
         #Post-processing/parsing outputs, here's an example for classification only:
         class_prediction_indices=yhat.argmax(dim=1)
