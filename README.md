@@ -4,47 +4,15 @@
 
 ## Lectures
 
+| Lecture | Notebook/Slides | Key Topics | Additional Reading/Viewing | 
+| -------  | --------------- | ------------ | -------------------------- | 
+| Introduction to Pytorch | [Notebook](https://github.com/unccv/deep_learning_for_computer_vision/blob/master/notebooks/introduction_to_pytorch.ipynb)| Why Pytorch?, Pytorch as "Numpy with GPU Support", simple neural network in Pytorch, automatic differentiation, nn.Module, PyTorch layers, PyTorch Optim, nn.Sequential | [Great Torch Intro by Jeremy Howard](https://pytorch.org/tutorials/beginner/nn_tutorial.html) |
+| Get results fast with fastai | Notebook| Jeremy Howard and the fastai philosophy, DataBunches, Learners, NLP with fastai, world class computer vision with fastai | [fastai course](https://github.com/fastai/course-v3)|
+|  GANs | Ian Goodfellow invents GANs, the world's simplest GAN & nash equilibria, a dive into higher dimensions, DCGAN to the rescue, Visualizing GANs, GAN grow up (sortof), StyleGAN insanity, the unbelievably interesting world of GAN variants | |
 
 
-## Setup 
 
-The Python 3 [Anaconda Distribution](https://www.anaconda.com/download) is the easiest way to get going with the notebooks and code presented here. 
+## GPU Usage & Setup
+A significant portion of the code in this repo (especially the fastai parts) will be painfully slow without a GPU. If you don't have access to a physical GPU machine, we recommend renting one. There are some really great/easy/affordable ways to do this, and with a couple platforms (Amazond Web Services, Google Cloud), you are likeley eldigable for free computer credits as a student. [fastai](https://course.fast.ai/start_salamander.html) has a really nice summary of the avaible cloud platforms for this type of thing, along with setup instructions. A number of services come with fastai already installed, which makes life even easier!
 
-(Optional) You may want to create a virtual environment for this repository: 
 
-~~~
-conda create -n cv python=3 
-source activate cv
-~~~
-
-You'll need to install the jupyter notebook to run the notebooks:
-
-~~~
-conda install jupyter
-
-# You may also want to install nb_conda (Enables some nice things like change virtual environments within the notebook)
-conda install nb_conda
-~~~
-
-This repository requires the installation of a few extra packages, you can install them all at once with:
-~~~
-pip install -r requirements.txt
-~~~
-
-(Optional) [jupyterthemes](https://github.com/dunovank/jupyter-themes) can be nice when presenting notebooks, as it offers some cleaner visual themes than the stock notebook, and makes it easy to adjust the default font size for code, markdown, etc. You can install with pip: 
-
-~~~
-pip install jupyterthemes
-~~~
-
-Recommend jupyter them for **presenting** these notebook (type into terminal before launching notebook):
-~~~
-jt -t grade3 -cellw=90% -fs=20 -tfs=20 -ofs=20 -dfs=20
-~~~
-
-Recommend jupyter them for **viewing** these notebook (type into terminal before launching notebook):
-~~~
-jt -t grade3 -cellw=90% -fs=14 -tfs=14 -ofs=14 -dfs=14
-~~~
-
-## GPU Usage
