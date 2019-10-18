@@ -1,7 +1,7 @@
 # Deep Learning Programming Challenge
 
 
-![](../videos/bbc1k.gif)
+![](../graphics/bbc1k.gif)
 
 ## About This Challenge
 
