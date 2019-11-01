@@ -43,24 +43,24 @@ Your job is to design and train a multitask deep learning model in fastai & pyto
 
 ## Deliverables (Waiting for 2019 Updates)
 
-1. Your modified version of `sample_model.py`. 
+1. Your modified version of `sample_student.py`. 
 2. fastai export of our model file as a `.pkl` file, exported with `learn.export()`. 
 
 ## Submission
 
-For this assignment you will upload your solutions to your Google Drive/Dropbox and then submit the link to your drive or dropbox file in Autolab. Here is how:
+For this assignment you will upload your solutions to your Dropbox and then submit the link to your drive or dropbox file in Autolab. Here is how:
 1. Download the submission folder from [here](https://drive.google.com/open?id=1eVZdNq2KXfhuhJE3bgfXo1mUYCML499v)
 2. Extract the downloaded handin.zip. Delete handin.zip.
 3. The extracted handin folder has the following structure:  
    /handin  
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /checkpoints   
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /sample_model.py  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /export.pkl   
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /sample_student.py  
     
-4. Place all your checkpoint files in handin/checkpoints/
-5. Replace /handin/sample_model.py with **your** sample_model.py. Keep the file name sample_model.py
+4. Replace /handin/export.pkl with **your** export.pkl(trained weights). Keep the file name export.pkl
+5. Replace /handin/sample_student.py with **your** sample_student.py. Keep the file name sample_student.py
 6. Zip the handin folder.
-7. Upload your handin.zip to your Google Drive or your Dropbox account.
-8. If using Dropbox, then select your handin.zip and click on Share button.  
+7. Upload your handin.zip to your Dropbox account.
+8. In Dropbox, select your handin.zip and click on Share button.  
    Make sure the sharing permission is "Anyone with the link can view this file".  
    Click on "copy link".  
    Your link should look like https://www.dropbox.com/s/u23i6mgjkqcr3lh/handin.zip?dl=0.  
@@ -71,7 +71,7 @@ For this assignment you will upload your solutions to your Google Drive/Dropbox 
 Notes:  
   * Do not share your submission link with anyone else.   
   * Keep the directory structure and name of the folder same as provided.  
-  * You do not need to submit any other .py file other than sample_model.py. Other py files provided with this challenge will be avaialble to your sample_model.py if needed.  
+  * You do not need to submit any other .py file other than sample_student.py. Other py files provided with this challenge will be avaialble to your sample_student.py if needed.  
   * **Please upload your final submission to canvas i.e your handin.zip. It is essential for this challenge to make a submission on Canvas. Missing submissions on Canvas will incur a penalty of 2 points for this challenge.**
 
 
