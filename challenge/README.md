@@ -49,7 +49,7 @@ Your job is to design and train a multitask deep learning model in fastai & pyto
 ## Submission
 
 For this assignment you will upload your solutions to your Dropbox and then submit the link to your drive or dropbox file in Autolab. Here is how:
-1. Download the submission folder from [here](https://drive.google.com/open?id=1eVZdNq2KXfhuhJE3bgfXo1mUYCML499v)
+1. Download the submission folder from [here](https://drive.google.com/file/d/14ZHoUJI6xcnNWWmU2AhkyCvrq2u6k7j-/view?usp=sharing)
 2. Extract the downloaded handin.zip. Delete handin.zip.
 3. The extracted handin folder has the following structure:  
    /handin  
