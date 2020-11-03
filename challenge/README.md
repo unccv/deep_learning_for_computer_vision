@@ -80,11 +80,11 @@ Your model will be evaluated on a true hold out set of ~200 images, and your gra
 
 | Accuracy (%) | Points (10 max)  | 
 | ------------- | ------------- | 
-| Accuracy >= 99     | 10  | 
-| 98 <= Accuracy < 99 | 9  |  
-| 97 <= Accuracy < 98 | 8  |   
-| 96 <= Accuracy < 97 | 7  |   
-| 95 <= Accuracy < 96 | 6  |   
-| 90 <= Accuracy < 95 | 5  |  
+| Accuracy >= 97     | 10  | 
+| 96 <= Accuracy < 97 | 9  |  
+| 95 <= Accuracy < 96 | 8  |   
+| 94 <= Accuracy < 95 | 7  |   
+| 93 <= Accuracy < 94 | 6  |   
+| 90 <= Accuracy < 93 | 5  |  
 | Accuracy < 90, or code fails to run | 4  |  
 
